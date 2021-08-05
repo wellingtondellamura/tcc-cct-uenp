@@ -1,0 +1,85 @@
+%Este modelo possui as configurações mais comuns para um TCC.
+%Na primeira linha são definidas as configurações principais do documento onde:
+%- 12pt indica o tamanho da fonte
+%- openright indica que todos os capítulos se iniciam nas folhas da direita
+%- twoside indica que o texto será impresso frente e verso (o contrário é oneside)
+%- a4paper determinar o tamanho do papel (pode ser utilizado letter se for necessário)
+%- tcc indica que o trabalho se trata de um tcc e portanto todo os dados pré-textuais 
+%possuem essa informação. Também pode ser utilizado o valor projeto para indicar o projeto de tcc.
+\documentclass[12pt,openright, twoside, a4paper, tcc]{cct-uenp}
+\input{auxiliar/packages}
+\input{auxiliar/info}
+\makeindex % compila o indice
+
+\begin{document}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+
+% Capa (elemento obrigatório)
+\imprimircapa 
+
+% Folha de rosto (elemento obrigatório) % (o * indica que haverá a ficha bibliográfica)
+%\imprimirfolhaderosto* 
+\imprimirfolhaderosto
+
+%ficha catalográfica (elemento obrigatório apenas se for para a biblioteca)
+%\input{fichacatalografica.tex] 
+
+% Folha de aprovação (elemento obrigatório)
+\imprimirfolhadeaprovacao 
+% ou \includepdf{folhadeaprovacao_final.pdf}
+
+%dedicatória, agradecimentos e epígrafe(elemento obrigatório)
+\input{1_pretextual/opcionais}
+
+%resumos (elemento obrigatório)
+\input{1_pretextual/resumos} 
+
+%lista de figuras, tabelas, símbolos, etc. (elemento opcional)
+\input{1_pretextual/listas}  
+
+%sumário (elemento obrigatório)
+\pdfbookmark[0]{\contentsname}{toc} \tableofcontents* \cleardoublepage  
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\pagestyle{uenp-header} % Configura cabeçalho para apresentar apenas números de página
+
+% ----------------------------------------------------------
+% Capitulos
+% ----------------------------------------------------------
+\input{2_textual/introducao}
+
+\input{2_textual/fundamentacao}
+
+\input{2_textual/metodologia}
+
+\input{2_textual/desenvolvimento}
+
+\input{2_textual/cronograma}
+
+\input{2_textual/resultados}
+
+\input{2_textual/conclusao}
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+
+\bibliography{auxiliar/bibliografia} % Referências bibliográficas
+
+%\input{3_postextual/glossario}
+
+%\input{3_postextual/apendices}
+
+%\input{3_postextual/anexos}
+
+%\input{3_postextual/publicacoes}
+
+%\input{3_postextual/indice}
+
+\end{document}
